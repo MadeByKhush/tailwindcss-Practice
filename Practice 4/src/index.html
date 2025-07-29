@@ -4,40 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="output.css">
     <title>🍔 Foodiez</title>
 </head>
 
 <body>
-    <nav class="flex justify-between p-4 px-9 bg-transparent text-md items-center">
-        <h1 class="font-semibold text-xl"> 🍔 Foodiez</h1>
+    <nav class="flex justify-between p-4 px-9 bg-white/10 backdrop-blur-lg shadow-md text-md items-center">
+        <h1 class="font-marienda font-bold text-2xl text-red-600">Foodiez</h1>
         <ul class="flex space-x-9">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Menu</a></li>
-            <li><a href="#">Offers</a></li>
-            <li><a href="#">Testimonials</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li class="hover:text-red-600 hover:-translate-y-1.5 hover:font-semibold transform transition-all ease-in-out duration-400"><a href="#">Home</a></li>
+            <li class="hover:text-red-600 hover:-translate-y-1.5 hover:font-semibold transform transition-all ease-in-out duration-400"><a href="#">Menu</a></li>
+            <li class="hover:text-red-600 hover:-translate-y-1.5 hover:font-semibold transform transition-all ease-in-out duration-400"><a href="#">Offers</a></li>
+            <li class="hover:text-red-600 hover:-translate-y-1.5 hover:font-semibold transform transition-all ease-in-out duration-400"><a href="#">Testimonials</a></li>
+            <li class="hover:text-red-600 hover:-translate-y-1.5 hover:font-semibold transform transition-all ease-in-out duration-400"><a href="#">Contact Us</a></li>
         </ul>
         <button
-            class="font-semibold text-white p-2 rounded-full bg-red-400 cursor-pointer hover:bg-red-500 hover:shadow-2xl">Order
+            class="font-semibold text-white p-2 rounded-full bg-red-500 cursor-pointer transform transition-all ease-in-out  hover:bg-red-600 hover:shadow-2xl">Order
             Now</button>
     </nav>
 
-    <section class="flex">
-        <div class="absolute">
-            <img src="./banner.png" alt="" class="w-fit">
-        </div>
-           <div class="relative">
-            <h1>Delicious food delivered to your door</h1>
-            <h3>Fast, fresh, and affordable meals.</h3>
-            <div>
-                <button>View Menu</button>
-                <button>Download App</button>
+    <section class="h-screen w-full  relative">
+
+        <img src="./banner.png" alt="" class="object-cover h-full w-full pointer-events-none z-0">
+
+        <div class="absolute h-full w-full top-0 bg-gradient-to-r from-black/95 to-black/5 backdrop-blur-[0.01rem] z-10"></div>
+
+        <div class="absolute top-52 left-42 space-y-0.5 z-10">
+            <h1 class="text-6xl font-bold text-white leading-loose  ">
+                Hunger <span class="text-yellow-400 text-9xl">hits ?</span> <span class="block -mt-8 text-white text-8xl"> <span class="text-red-500 text-9xl"> We </span>deliver</span></h1>
+           
+                <h3 class="text-sm text-center text-slate-200 leading-loose tracking-tight font-light">
+                “ Affordable meals, lightning-fast service, and a taste that’ll keep your fingers busy. ”
+            </h3>
+
+            <div class="space-x-8 flex left-48 ">
+                <button class="bg-yellow-400 inline-block mt-4 p-3  text-md font-medium cursor-pointer rounded-full">Download App</button>
+                <button class="bg-red-500 inline-block mt-4 p-3  text-md font-medium cursor-pointer text-white rounded-full">View Menu</button>
             </div>
         </div>
-    </section>
 
     
+    </section>
 </body>
-
 </html>
