@@ -1,64 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./output.css">
-      <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./output.css">
+  <title>Dark Mode Toggle</title>
+
+  <!-- ✅ Tailwind CSS with Dark Mode via class -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Enable class-based dark mode
     tailwind.config = {
       darkMode: 'class',
     };
   </script>
-    <title>Landing Page</title>
 </head>
+<body class="transition duration-500 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
 
-<body>
-    <div class="min-h-screen bg-white dark:bg-gray-900 transition duration-500">
+  <!-- ✅ Top Right Toggle Button -->
+  <div class="flex justify-end p-4">
+    <button id="toggleDark" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded hover:scale-105 transition">
+      🌞 Light Mode
+    </button>
+  </div>
 
-        <!-- Top-right Toggle Button -->
-        <div class="flex justify-end p-4">
-            <button id="toggleDark" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded cursor-pointer">
-                Toggle Dark Mode
-            </button>
-        </div>
+  <!-- ✅ Main Content -->
+  <div class="text-center mt-24 px-4">
+    <h1 class="text-4xl font-bold mb-4">Welcome to Dark Mode</h1>
+    <p class="text-lg max-w-xl mx-auto">
+      This is a simple Tailwind CSS page with a dark/light theme toggle. Click the button above to switch modes!
+    </p>
+  </div>
 
-        <!-- Main Content -->
-        <div class="text-center mt-20 px-4">
-            <h1 class="text-6xl font-bold text-gray-600 dark:text-white">Welcome to <span class=" text-gray-800 dark:text-white">Dark</span> Mode</h1>
-            <p class="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-xl mx-auto">
-                This is a simple Tailwind CSS page with a dark/light theme toggle. Click the button above to switch
-                modes!
-            </p>
-        </div>
+  <!-- ✅ JavaScript for Toggle Functionality -->
+  <script>
+    const toggle = document.getElementById('toggleDark');
+    const html = document.documentElement;
 
-    </div>
-    <script>
-  const toggle = document.getElementById('toggleDark');
-  const html = document.documentElement;
-
-  // Check localStorage to persist mode
-  if (localStorage.getItem('theme') === 'dark') {
-    html.classList.add('dark');
-    toggle.innerText = '🌙 Dark Mode';
-  }
-
-  toggle.addEventListener('click', () => {
-    html.classList.toggle('dark');
-
-    // Update localStorage
-    if (html.classList.contains('dark')) {
-      localStorage.setItem('theme', 'dark');
+    // Check localStorage and apply theme on page load
+    if (localStorage.getItem('theme') === 'dark') {
+      html.classList.add('dark');
       toggle.innerText = '🌙 Dark Mode';
     } else {
-      localStorage.setItem('theme', 'light');
       toggle.innerText = '🌞 Light Mode';
     }
-  });
-</script>
 
+    toggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+
+      if (html.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+        toggle.innerText = '🌙 Dark Mode';
+      } else {
+        localStorage.setItem('theme', 'light');
+        toggle.innerText = '🌞 Light Mode';
+      }
+    });
+  </script>
 </body>
-
 </html>
