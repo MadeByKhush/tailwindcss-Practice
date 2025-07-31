@@ -4,25 +4,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="./output.css">
-    <title>Skillora</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Enable class-based dark mode
+    tailwind.config = {
+      darkMode: 'class',
+    };
+  </script>
+    <title>Landing Page</title>
 </head>
 
-<body class="h-screen w-full">
-    <nav class="flex justify-between items-center text-center p-4 px-6 space-x-2.5">
-        <div class="text-3xl font-Kantumruy font-semibold leading-tight tracking-wider text-indigo-700">Skillora</div>
-        <input type="text" class="border border-slate-600 min-w-lg max-w-lg h-8 rounded-4xl focus:border-indigo-700 p-5"
-            placeholder="Search for Anything !">
-        <div class="space-x-5.5">
-            <button
-                class="  text-indigo-600 border p-1 w-20 cursor-pointer rounded-sm hover:bg-indigo-100">Login</button>
-            <button class=" bg-indigo-600 text-white p-1 w-20 cursor-pointer rounded-sm  hover:bg-indigo-700">Sign
-                Up</button>
-                <ion-icon name="menu-outline" class="md:hidden"></ion-icon>
+<body>
+    <div class="min-h-screen bg-white dark:bg-gray-900 transition duration-500">
+
+        <!-- Top-right Toggle Button -->
+        <div class="flex justify-end p-4">
+            <button id="toggleDark" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded cursor-pointer">
+                Toggle Dark Mode
+            </button>
         </div>
-    </nav>
+
+        <!-- Main Content -->
+        <div class="text-center mt-20 px-4">
+            <h1 class="text-6xl font-bold text-gray-600 dark:text-white">Welcome to <span class=" text-gray-800 dark:text-white">Dark</span> Mode</h1>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-xl mx-auto">
+                This is a simple Tailwind CSS page with a dark/light theme toggle. Click the button above to switch
+                modes!
+            </p>
+        </div>
+
+    </div>
+    <script>
+  const toggle = document.getElementById('toggleDark');
+  const html = document.documentElement;
+
+  // Check localStorage to persist mode
+  if (localStorage.getItem('theme') === 'dark') {
+    html.classList.add('dark');
+    toggle.innerText = '🌙 Dark Mode';
+  }
+
+  toggle.addEventListener('click', () => {
+    html.classList.toggle('dark');
+
+    // Update localStorage
+    if (html.classList.contains('dark')) {
+      localStorage.setItem('theme', 'dark');
+      toggle.innerText = '🌙 Dark Mode';
+    } else {
+      localStorage.setItem('theme', 'light');
+      toggle.innerText = '🌞 Light Mode';
+    }
+  });
+</script>
+
 </body>
 
 </html>
